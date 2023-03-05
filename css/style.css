@@ -392,7 +392,7 @@ button:focus,
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: var(--bg-purple);
+    border-top-color: var(--purple-blue);
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
