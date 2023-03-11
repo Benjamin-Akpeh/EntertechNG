@@ -3440,6 +3440,7 @@ header.fix_style.white_header {
     align-items: center;
     position: relative;
     margin-top: -150px;
+    margin-bottom: 50px;
 }
 
 .contact_page_section .contact_inner .section_title h2 {
@@ -3458,15 +3459,15 @@ header.fix_style.white_header {
     margin-bottom: 0;
 }
 
-.contact_page_section .contact_inner .contact_form form {
+.contact_page_section .contact_inner .contact_form div {
     margin-top: 30px;
 }
 
-.contact_page_section .contact_inner .contact_form form .form-group {
+.contact_page_section .contact_inner .contact_form div .form-group {
     margin-bottom: 20px;
 }
 
-.contact_page_section .contact_inner .contact_form form .form-group .form-control {
+.contact_page_section .contact_inner .contact_form div .form-group .form-control {
     height: 60px;
     padding: 5px 20px;
     color: var(--body-text-purple);
@@ -3475,35 +3476,35 @@ header.fix_style.white_header {
     font-weight: 500;
 }
 
-.contact_page_section .contact_inner .contact_form form .form-group .form-control:focus {
+.contact_page_section .contact_inner .contact_form div .form-group .form-control:focus {
     box-shadow: none;
     border-color: var(--purple);
     color: var(--purple);
 }
 
-.contact_page_section .contact_inner .contact_form form .form-group textarea.form-control {
+.contact_page_section .contact_inner .contact_form div .form-group textarea.form-control {
     height: 140px;
     padding-top: 15px;
 }
 
-.contact_page_section .contact_inner .contact_form form .term_check {
+.contact_page_section .contact_inner .contact_form div .term_check {
     display: flex;
     align-items: center;
 }
 
-.contact_page_section .contact_inner .contact_form form .term_check input {
+.contact_page_section .contact_inner .contact_form div .term_check input {
     width: 17px;
     height: 17px;
     accent-color: var(--purple);
 }
 
-.contact_page_section .contact_inner .contact_form form .term_check label {
+.contact_page_section .contact_inner .contact_form div .term_check label {
     font-size: 13px;
     margin-bottom: 0;
     margin-left: 7px;
 }
 
-.contact_page_section .contact_inner .contact_form form .form-group button {
+.contact_page_section .contact_inner .contact_form div .form-group button {
     width: 240px;
     margin: 0 auto;
     display: block;
