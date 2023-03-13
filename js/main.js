@@ -104,10 +104,10 @@ $('#screen_slider').owlCarousel({
 // Number Count
 window.addEventListener('scroll', function () {
   var element = document.querySelector('#counter');
-  var position = element.getBoundingClientRect();
+  var position = element?.getBoundingClientRect();
 
   // checking whether fully visible
-  if (position.top >= 0 && position.bottom <= window.innerHeight) {
+  if (position?.top >= 0 && position?.bottom <= window.innerHeight) {
     $('.counter-value').each(function () {
       var $this = $(this),
         countTo = $this.attr('data-count');
@@ -133,7 +133,7 @@ window.addEventListener('scroll', function () {
     });
   }
 
-  if (position.top < window.innerHeight && position.bottom >= 0) {
+  if (position?.top < window.innerHeight && position?.bottom >= 0) {
     //console.log('Element is partially visible in screen');
   } else {
     //console.log('Element is not visible');
@@ -167,16 +167,16 @@ window.addEventListener('scroll', function () {
 
 // --------Magnify-popup
 
-$(function () {
-  $('.popup-youtube').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 160,
-    preloader: false,
-    fixedContentPos: false
-  });
-});
+// $(function () {
+//   $('.popup-youtube')?.magnificPopup({
+//     disableOn: 700,
+//     type: 'iframe',
+//     mainClass: 'mfp-fade',
+//     removalDelay: 160,
+//     preloader: false,
+//     fixedContentPos: false
+//   });
+// });
 
 
 // Pricing Section Year Month Jquery
@@ -222,73 +222,53 @@ $(document).ready(function () {
 });
 
 
-// Download Section Hover Jquery
-window.addEventListener('scroll', function () {
-  var element = document.querySelector('.free_text');
-  var position = element.getBoundingClientRect();
+// // Download Section Hover Jquery
+// window.addEventListener('scroll', function () {
+//   var element = document.querySelector('.free_text');
+//   var position = element?.getBoundingClientRect();
 
-  if (position.top < window.innerHeight && position.bottom >= 0) {
-    $('.purple_backdrop').css("opacity", "1");
-  } else {
-    //console.log('Element is not visible');
-    $('.purple_backdrop').css("opacity", "0");
-  }
-});
+//   if (position?.top < window.innerHeight && position?.bottom >= 0) {
+//     $('.purple_backdrop').css("opacity", "1");
+//   } else {
+//     //console.log('Element is not visible');
+//     $('.purple_backdrop').css("opacity", "0");
+//   }
+// });
 
 $(window).on('resize', function () {
   if ($(window).width() < 768) {
 
-    window.addEventListener('scroll', function () {
-      var element = document.querySelector('.mobile_mockup');
-      var position = element.getBoundingClientRect();
+    // window.addEventListener('scroll', function () {
+    //   var element = document.querySelector('.mobile_mockup');
+    //   var position = element?.getBoundingClientRect();
 
-      if (position.top < window.innerHeight && position.bottom >= 0) {
-        $('.purple_backdrop').css("opacity", "1");
-      } else {
-        //console.log('Element is not visible');
-        $('.purple_backdrop').css("opacity", "0");
-      }
-    });
+    //   if (position?.top < window.innerHeight && position?.bottom >= 0) {
+    //     $('.purple_backdrop').css("opacity", "1");
+    //   } else {
+    //     //console.log('Element is not visible');
+    //     $('.purple_backdrop').css("opacity", "0");
+    //   }
+    // });
 
   }
   else {
 
-    window.addEventListener('scroll', function () {
-      var element = document.querySelector('.free_text');
-      var position = element.getBoundingClientRect();
+    // window.addEventListener('scroll', function () {
+    //   var element = document.querySelector('.free_text');
+    //   var position = element?.getBoundingClientRect();
 
-      if (position.top < window.innerHeight && position.bottom >= 0) {
-        $('.purple_backdrop').css("opacity", "1");
-      } else {
-        //console.log('Element is not visible');
-        $('.purple_backdrop').css("opacity", "0");
-      }
-    });
+    //   if (position?.top < window.innerHeight && position?.bottom >= 0) {
+    //     $('.purple_backdrop').css("opacity", "1");
+    //   } else {
+    //     //console.log('Element is not visible');
+    //     $('.purple_backdrop').css("opacity", "0");
+    //   }
+    // });
 
   }
 });
 
-// Send message
-$(document).ready(() => {
-  const sendButton = $('.send-message');
 
-  const sendEmail = () => {
-    Email.send({
-      Host: "smtp.gmail.com",
-      Username: "sender.cuidon@gmail.com",
-      Password: "Cuidon12345",
-      To: 'fddcm.daniel@gmail.com',
-      From: "sender.cuidon@gmail.com",
-      Subject: "From website cuidon",
-      Body: "Well that was easy!!",
-    })
-      .then(function (message) {
-        alert("mail sent successfully")
-      });
-  }
-
-  sendButton.on('click', sendEmail);
-});
 
 
 // Scrool-top
@@ -368,6 +348,68 @@ $(document).ready(function () {
   });
 })();
 
+// Send message
+const serviceId = 'service_jyaaw0o';
+const templateId = 'template_svpjs6m';
+const publicKey = 'QDXxuXIG9vPHlFaMO';
+
+const sendButton = $('.send-message');
+
+const isValidEmail = email =>
+  Boolean(email) &&
+  email
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+
+const getParams = (nameValue, emailValue, messageValue, contactPurposeValue) => ({
+  name: nameValue,
+  email: emailValue,
+  message: messageValue,
+  contactPurposeValue
+});
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  const nameValue = document.getElementById('form-name').value;
+  const emailValue = document.getElementById('form-email').value;
+  const contactPurposeValue = document.getElementById('form-contact-purpose').value;
+  const messageValue = document.getElementById('form-message').value;
+
+  const isFieldsValids = Boolean(nameValue) && Boolean(isValidEmail(emailValue)) && Boolean(messageValue) && Boolean(contactPurposeValue !== '');
+  console.log(getParams(nameValue, emailValue, messageValue, contactPurposeValue));
+  if (!isFieldsValids) return;
+
+  const paramsToSend = getParams(nameValue, emailValue, messageValue, contactPurposeValue);
+
+  sendButton.prop('disabled', true);
+
+  emailjs.send(serviceId, templateId, paramsToSend, publicKey)
+    .then((response) => {
+
+      document.getElementById('form-name').value = '';
+      document.getElementById('form-email').value = '';
+      document.getElementById('form-message').value = '';
+      document.getElementById('form-contact-purpose').value = '';
+
+      sendButton.prop('disabled', false);
+
+      console.log('SUCCESS!', response.status, response.text);
+    }, (error) => {
+      console.log('FAILED...', error);
+      alert(error);
+
+      sendButton.prop('disabled', false);
+    });
+};
+
+
+$(document).ready(() => {
+  $('.contact-form').submit(sendEmail);
+  // sendButton.on('submit', sendEmail);
+});
 
 // INITIALIZE AOS
 
